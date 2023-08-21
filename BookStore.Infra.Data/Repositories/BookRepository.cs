@@ -50,6 +50,7 @@ public class BookRepository : IBookRepository
                                   b.publication_year PublicationYear,
                                   b.price,
                                   i.book_id as BookId,
+                                  i.Id,
                                   i.quantity,
                                   i.minimum_quantity as MinimumQuantity,
                                   i.maximum_quantity as MaximumQuantity

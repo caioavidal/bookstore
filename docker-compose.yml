@@ -6,7 +6,7 @@ services:
     image: postgres:latest
     container_name: postgres-bookstore
     environment:
-      POSTGRES_DB: bookstore
+      POSTGRES_DB: bookstoredb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
     ports:
@@ -18,10 +18,10 @@ services:
 
   # BookStore Web API service
   bookstore-api:
-    image: bookstore-web-api:latest
+    image: bookstore:latest
     container_name: bookstore-api
     environment:
-      ConnectionStrings__DefaultConnection: "Host=postgres;Database=BookStore;Username=postgres;Password=123456"
+      ConnectionStrings__DefaultConnection: "Host=postgres;Database=bookstoredb;Username=postgres;Password=123456"
     ports:
       - "3000:80"
     depends_on:

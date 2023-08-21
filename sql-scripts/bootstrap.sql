@@ -13,16 +13,28 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE BookStore;
-ALTER DATABASE BookStore
-ENCODING = 'UTF8'
-LC_COLLATE = 'en_US.UTF-8'
-LC_CTYPE = 'en_US.UTF-8';
 
-CREATE SCHEMA public;
+--CREATE DATABASE BookStoreDB;
+
+--CREATE SCHEMA PUBLIC;
 
 GRANT ALL PRIVILEGES ON SCHEMA public TO postgres;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO postgres;
+
+-- Copiando estrutura para tabela public.users
+CREATE TABLE IF NOT EXISTS "users" (
+	"id" UUID NOT NULL,
+	"name" VARCHAR(255) NOT NULL,
+	"birth_date" TIMESTAMP NOT NULL,
+	"email" VARCHAR(255) NOT NULL,
+	"password_hash" TEXT NULL DEFAULT NULL,
+	"role" VARCHAR(50) NULL DEFAULT NULL,
+	"salt" BYTEA NULL DEFAULT NULL,
+	PRIMARY KEY ("id"),
+	UNIQUE ("email")
+);
+
+-- Exportação de dados foi desmarcado.
 
 -- Copiando estrutura para tabela public.books
 CREATE TABLE IF NOT EXISTS "books" (
@@ -83,21 +95,6 @@ CREATE TABLE IF NOT EXISTS "order_statuses" (
 	"created_at" TIMESTAMP NOT NULL,
 	PRIMARY KEY ("id"),
 	CONSTRAINT "order_statuses_order_id_fkey" FOREIGN KEY ("order_id") REFERENCES "orders" ("id") ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
--- Exportação de dados foi desmarcado.
-
--- Copiando estrutura para tabela public.users
-CREATE TABLE IF NOT EXISTS "users" (
-	"id" UUID NOT NULL,
-	"name" VARCHAR(255) NOT NULL,
-	"birth_date" TIMESTAMP NOT NULL,
-	"email" VARCHAR(255) NOT NULL,
-	"password_hash" TEXT NULL DEFAULT NULL,
-	"role" VARCHAR(50) NULL DEFAULT NULL,
-	"salt" BYTEA NULL DEFAULT NULL,
-	PRIMARY KEY ("id"),
-	UNIQUE INDEX "users_email_key" ("email")
 );
 
 -- Exportação de dados foi desmarcado.

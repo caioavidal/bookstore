@@ -10,6 +10,7 @@ public static class AppServiceInjection
         serviceCollection.AddScoped<IBookAppService, BookAppService>();
         serviceCollection.AddScoped<IOrderAppService, OrderAppService>();
         serviceCollection.AddScoped<IUserAppService, UserAppService>();
+        serviceCollection.AddScoped<IInventoryAppService, InventoryAppService>();
 
         return serviceCollection;
     }

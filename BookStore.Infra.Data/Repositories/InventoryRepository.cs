@@ -44,4 +44,18 @@ public class InventoryRepository : IInventoryRepository
 
         await _dapperWrapper.ExecuteAsync(sql, new { InventoryId = inventory.Id, NewQuantity = inventory.Quantity });
     }
+
+    public async Task AddItem(Inventory inventory)
+    {
+        const string sql = """
+                           INSERT INTO inventory (Id, book_id, quantity, minimum_quantity, maximum_quantity)
+                           values (@Id, @BookId, @Quantity, @MinimumQuantity, @MaximumQuantity)
+                           """;
+
+        await _dapperWrapper.ExecuteAsync(sql, new
+        {
+            inventory.Id, inventory.Quantity,
+            inventory.MaximumQuantity, inventory.MinimumQuantity, BookId = inventory.Book.Id
+        });
+    }
 }
