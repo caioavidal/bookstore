@@ -52,7 +52,7 @@ To run the BookStore Web API, follow these steps:
 5. Build the Docker image using the provided Dockerfile:
 
    ```bash
-   docker build -t bookstore-web-api .
+   docker build -t bookstore .
    ```
 
 6. Run the application using Docker Compose:
@@ -60,6 +60,10 @@ To run the BookStore Web API, follow these steps:
    ```bash
    docker-compose up
    ```
+
+6. Open application swagger URL at:
+   http://localhost:3000/swagger/index.html
+
 
 This will start the BookStore Web API along with its required services.
 
