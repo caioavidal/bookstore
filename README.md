@@ -27,7 +27,7 @@ Welcome to the BookStore Web API documentation. This API allows you to manage a 
 
 The BookStore Web API is structured using the clean architecture pattern. This promotes separation of concerns and modularity in the codebase. The architecture consists of the following layers:
 
-1. **Application Layer**: This layer contains the business logic and orchestrates the interactions between different components. It defines use cases and interfaces for interacting with the Domain layer.
+1. **Application Layer**: This layer contains the application logic and orchestrates the interactions between different components. It defines use cases and interfaces for interacting with the Domain layer.
 
 2. **Domain Layer**: The heart of the application, this layer contains the core business entities, rules, and logic. It's independent of any external concerns and represents the actual domain model.
 
@@ -64,11 +64,3 @@ To run the BookStore Web API, follow these steps:
 This will start the BookStore Web API along with its required services.
 
 Remember to configure environment variables, connection strings, and other settings as needed before running the application.
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to the BookStore Web API, please follow the contribution guidelines outlined in the repository.
-
----
-
-Feel free to customize and expand upon this README template to fit the specifics of your application and development environment. Remember that documentation should be clear, concise, and informative to help users understand and use your application effectively.
